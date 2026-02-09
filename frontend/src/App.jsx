@@ -7,8 +7,6 @@ import NotesDetailPage from './pages/NoteDetailPage';
 function App() {
   return (
     <div data-theme="coffee">
-      <button className="btn btn-primary">Coffee Button ☕</button>
-
       <Routes>
         <Route path="/" element={<HomePage></HomePage>} />
         <Route path="/create" element={<CreatePage></CreatePage>} />
