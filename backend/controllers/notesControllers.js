@@ -11,7 +11,17 @@ const getAllNotes = async (req, res) => {
     });
   }
 };
-
+const getNoteById = async (req, res) => {
+  try {
+    const note = await Note.findById(req.params.id);
+    if (!note) {
+      return res.status(404).json({ message: 'Note not found' });
+    }
+  } catch (error) {
+    console.error('Error in the getNoteById controller ', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
 const createNote = async (req, res) => {
   try {
     const { title, content } = req.body;
@@ -60,6 +70,7 @@ const deleteNote = async (req, res) => {
 
 module.exports = {
   getAllNotes,
+  getNoteById,
   updateNote,
   deleteNote,
   createNote,

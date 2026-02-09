@@ -8,10 +8,6 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.use((req, res, next) => {
-  console.log('a req is on the server');
-  next();
-});
 app.use('/api/notes', notesRoutes);
 
 // ! Starting the server
